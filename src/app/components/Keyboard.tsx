@@ -40,10 +40,12 @@ function WhiteKey({
   isHighlighted?: boolean;
 }) {
   return (
-    <div className="bg-white w-8 h-24 border border-black text-black flex flex-col justify-end text-center text-sm">
-      <span className="mb-1">
-        <span className={isHighlighted ? "text-red-600" : ""}>{note}</span>
-      </span>
+    <div
+      className={`w-8 h-24 text-black flex flex-col justify-end text-center text-sm ${
+        isHighlighted ? "bg-red-300" : "bg-white"
+      }`}
+    >
+      <span className="mb-1">{note}</span>
     </div>
   );
 }
@@ -56,12 +58,12 @@ function BlackKey({
   isHighlighted?: boolean;
 }) {
   return (
-    <div className="bg-black w-6 h-16 ml-[-1.5rem] left-3 relative border border-white text-white flex flex-col justify-end text-center text-xs">
-      <span className="mb-1">
-        <span className={isHighlighted ? "text-red-600" : ""}>
-          {note.replace("sharp", "#")}
-        </span>
-      </span>
+    <div
+      className={`w-6 h-16 ml-[-1.5rem] left-3 relative text-white flex flex-col justify-end text-center text-xs ${
+        isHighlighted ? "bg-red-600" : "bg-black"
+      }`}
+    >
+      <span className="mb-1">{note.replace("sharp", "#")}</span>
     </div>
   );
 }
