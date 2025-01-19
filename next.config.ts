@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       {
         source: "/",
         destination: "/C/Ionian",
-        permanent: true,
+        permanent: false,
       },
     ];
   },
