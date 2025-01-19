@@ -1,20 +1,24 @@
 "use server";
 
-import Link from "next/link";
 import { Scale, ScaleModeName, scales } from "../musicTheory/basics";
+import { SelectorButton } from "./SelectorButton";
 
 interface Props {
   selectedScale: Scale;
   selectedMode: ScaleModeName;
 }
 
-export async function ScaleSelector({ selectedMode }: Props) {
+export async function ScaleSelector({ selectedScale, selectedMode }: Props) {
   return (
-    <div className="flex gap-4">
+    <div>
       {scales.map((scale) => (
-        <Link key={scale} href={`/${scale}/${selectedMode}`}>
+        <SelectorButton
+          key={scale}
+          href={`/${scale}/${selectedMode}`}
+          isSelected={scale === selectedScale}
+        >
           {scale.replace("sharp", "#")}
-        </Link>
+        </SelectorButton>
       ))}
     </div>
   );
