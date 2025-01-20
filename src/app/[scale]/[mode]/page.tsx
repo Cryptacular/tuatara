@@ -4,12 +4,22 @@ import { Scale, ScaleModeName } from "@/app/musicTheory/basics";
 import { ModeSelector } from "@/app/components/ModeSelector";
 import Link from "next/link";
 import PageWrapper from "@/app/components/PageWrapper";
+import { Metadata } from "next";
+import { replaceSymbols } from "@/app/musicTheory/symbols";
 
-export default async function Page({
-  params,
-}: {
+interface Props {
   params: Promise<{ scale: Scale; mode: ScaleModeName }>;
-}) {
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { scale, mode } = await params;
+
+  return {
+    title: `Tuatara — ${replaceSymbols(scale)} ${mode}`,
+  };
+}
+
+export default async function Page({ params }: Props) {
   const { scale, mode } = await params;
 
   return (
