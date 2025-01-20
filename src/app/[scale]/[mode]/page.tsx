@@ -33,8 +33,10 @@ export default async function Page({ params }: Props) {
       <h2 className="text-lg">Mode</h2>
       <ModeSelector selectedScale={scale} selectedMode={mode} />
 
-      <Keyboard scale={scale} mode={mode} />
-      <BassGuitar scale={scale} mode={mode} />
+      <div className="flex flex-col md:flex-row gap-16 items-start mt-16">
+        <Keyboard scale={scale} mode={mode} />
+        <BassGuitar scale={scale} mode={mode} />
+      </div>
     </PageWrapper>
   );
 }

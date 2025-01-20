@@ -1,5 +1,6 @@
 import { Scale, ScaleModeName, scales } from "../musicTheory/basics";
 import { replaceSymbols } from "../musicTheory/symbols";
+import { Selector } from "./Selector";
 import { SelectorButton } from "./SelectorButton";
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 
 export async function ScaleSelector({ selectedScale, selectedMode }: Props) {
   return (
-    <div className="flex flex-row">
+    <Selector gridSizeSmall={6} gridSizeLarge={12}>
       {scales.map((scale) => (
         <SelectorButton
           key={scale}
@@ -19,6 +20,6 @@ export async function ScaleSelector({ selectedScale, selectedMode }: Props) {
           {replaceSymbols(scale)}
         </SelectorButton>
       ))}
-    </div>
+    </Selector>
   );
 }

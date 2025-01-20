@@ -1,4 +1,5 @@
 import { modes, Scale, ScaleModeName } from "../musicTheory/basics";
+import { Selector } from "./Selector";
 import { SelectorButton } from "./SelectorButton";
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 
 export async function ModeSelector({ selectedScale, selectedMode }: Props) {
   return (
-    <div className="flex flex-row">
+    <Selector gridSizeSmall={4} gridSizeLarge={8}>
       {modes.map((mode) => (
         <SelectorButton
           key={mode.name}
@@ -21,6 +22,6 @@ export async function ModeSelector({ selectedScale, selectedMode }: Props) {
           </span>
         </SelectorButton>
       ))}
-    </div>
+    </Selector>
   );
 }
