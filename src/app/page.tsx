@@ -1,5 +1,4 @@
 import { ScaleSelector } from "@/app/components/ScaleSelector";
-import { Keyboard } from "@/app/components/Keyboard";
 import { Scale, ScaleModeName } from "@/app/musicTheory/basics";
 import { ModeSelector } from "@/app/components/ModeSelector";
 import Link from "next/link";
@@ -21,8 +20,6 @@ export default async function Page({
       <ScaleSelector selectedScale={scale} selectedMode={mode} />
       <h2 className="text-lg">Mode</h2>
       <ModeSelector selectedScale={scale} selectedMode={mode} />
-
-      <Keyboard scale={scale} mode={mode} />
     </PageWrapper>
   );
 }
