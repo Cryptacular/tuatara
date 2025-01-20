@@ -51,6 +51,11 @@ export const modes: ScaleMode[] = [
   { name: "Mixolydian", semitones: [2, 2, 1, 2, 2, 1], type: "Major" },
   { name: "Aeolian", semitones: [2, 1, 2, 2, 1, 2], type: "Minor" },
   { name: "Locrian", semitones: [1, 2, 2, 1, 2, 2], type: "Minor" },
+  {
+    name: "Chromatic",
+    semitones: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    type: "Other",
+  },
 ];
 
 export type Scale =
@@ -71,7 +76,7 @@ export interface ScaleMode {
   name: ScaleModeName;
 
   semitones: number[];
-  type: "Major" | "Minor";
+  type: "Major" | "Minor" | "Other";
 }
 
 export type ScaleModeName =
@@ -81,4 +86,5 @@ export type ScaleModeName =
   | "Lydian"
   | "Mixolydian"
   | "Aeolian"
-  | "Locrian";
+  | "Locrian"
+  | "Chromatic";

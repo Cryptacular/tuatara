@@ -6,6 +6,7 @@ import Link from "next/link";
 import PageWrapper from "@/app/components/PageWrapper";
 import { Metadata } from "next";
 import { replaceSymbols } from "@/app/musicTheory/symbols";
+import { BassGuitar } from "@/app/components/BassGuitar";
 
 interface Props {
   params: Promise<{ scale: Scale; mode: ScaleModeName }>;
@@ -33,6 +34,7 @@ export default async function Page({ params }: Props) {
       <ModeSelector selectedScale={scale} selectedMode={mode} />
 
       <Keyboard scale={scale} mode={mode} />
+      <BassGuitar scale={scale} mode={mode} />
     </PageWrapper>
   );
 }
