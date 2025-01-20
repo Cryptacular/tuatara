@@ -16,9 +16,7 @@ export default async function Page({
       <h1 className="text-xl font-bold">
         <Link href="/">Tuatara</Link>
       </h1>
-      <h2 className="text-lg">Scale</h2>
       <ScaleSelector selectedScale={scale} selectedMode={mode} />
-      <h2 className="text-lg">Mode</h2>
       <ModeSelector selectedScale={scale} selectedMode={mode} />
     </PageWrapper>
   );

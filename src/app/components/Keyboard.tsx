@@ -1,6 +1,7 @@
 import { ScaleMode, Scale, notesFromC } from "../musicTheory/basics";
 import getNotesInScale from "../musicTheory/getNotesInScale";
 import { replaceSymbols } from "../musicTheory/symbols";
+import { HeadingContainer } from "./HeadingContainer";
 
 interface Props {
   scale: Scale;
@@ -11,8 +12,7 @@ export function Keyboard({ scale, mode }: Props) {
   const notesInScale = getNotesInScale(scale, mode);
 
   return (
-    <div className="flex flex-row gap-3">
-      <h2 className="text-md mb-4 [writing-mode:vertical-lr] mt-3">Keyboard</h2>
+    <HeadingContainer title="Keyboard">
       <div className="flex flex-row">
         {notesFromC.map((note) =>
           note.includes("sharp") ? (
@@ -30,7 +30,7 @@ export function Keyboard({ scale, mode }: Props) {
           )
         )}
       </div>
-    </div>
+    </HeadingContainer>
   );
 }
 
@@ -43,10 +43,10 @@ function WhiteKey({
 }) {
   return (
     <div
-      className={`w-8 h-24 text-black flex flex-col justify-end text-center text-sm mr-1 ${
+      className={`w-8 h-24 text-black rounded-b-sm flex flex-col justify-end text-center text-sm mr-1 ${
         isHighlighted
           ? "bg-purple-300 font-bold"
-          : "bg-gray-200 text-gray-500 border-b-4 border-black"
+          : "bg-gray-200 text-gray-500 h-[5.5rem]"
       }`}
     >
       <span className="mb-1">{note}</span>

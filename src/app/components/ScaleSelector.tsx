@@ -1,5 +1,6 @@
 import { Scale, ScaleModeName, scales } from "../musicTheory/basics";
 import { replaceSymbols } from "../musicTheory/symbols";
+import { HeadingContainer } from "./HeadingContainer";
 import { Selector } from "./Selector";
 import { SelectorButton } from "./SelectorButton";
 
@@ -10,16 +11,18 @@ interface Props {
 
 export async function ScaleSelector({ selectedScale, selectedMode }: Props) {
   return (
-    <Selector gridSizeSmall={6} gridSizeLarge={12}>
-      {scales.map((scale) => (
-        <SelectorButton
-          key={scale}
-          href={`/${scale}/${selectedMode ?? "Ionian"}`}
-          isSelected={scale === selectedScale}
-        >
-          {replaceSymbols(scale)}
-        </SelectorButton>
-      ))}
-    </Selector>
+    <HeadingContainer title="Scale">
+      <Selector>
+        {scales.map((scale) => (
+          <SelectorButton
+            key={scale}
+            href={`/${scale}/${selectedMode ?? "Ionian"}`}
+            isSelected={scale === selectedScale}
+          >
+            {replaceSymbols(scale)}
+          </SelectorButton>
+        ))}
+      </Selector>
+    </HeadingContainer>
   );
 }

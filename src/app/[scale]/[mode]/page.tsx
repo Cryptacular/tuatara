@@ -28,12 +28,10 @@ export default async function Page({ params }: Props) {
       <h1 className="text-xl font-bold">
         <Link href="/">Tuatara</Link>
       </h1>
-      <h2 className="text-lg">Scale</h2>
       <ScaleSelector selectedScale={scale} selectedMode={mode} />
-      <h2 className="text-lg">Mode</h2>
       <ModeSelector selectedScale={scale} selectedMode={mode} />
 
-      <div className="flex flex-col md:flex-row gap-16 items-start mt-16">
+      <div className="flex flex-col md:flex-row gap-16 items-center md:items-start mt-16">
         <Keyboard scale={scale} mode={mode} />
         <BassGuitar scale={scale} mode={mode} />
       </div>
