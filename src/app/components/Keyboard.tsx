@@ -1,5 +1,6 @@
 import { ScaleMode, Scale, notesFromC } from "../musicTheory/basics";
 import getNotesInScale from "../musicTheory/getNotesInScale";
+import { replaceSymbols } from "../musicTheory/symbols";
 
 interface Props {
   scale: Scale;
@@ -63,7 +64,7 @@ function BlackKey({
         isHighlighted ? "bg-red-600" : "bg-black"
       }`}
     >
-      <span className="mb-1">{note.replace("sharp", "#")}</span>
+      <span className="mb-1">{replaceSymbols(note)}</span>
     </div>
   );
 }

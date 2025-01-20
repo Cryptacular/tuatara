@@ -1,4 +1,5 @@
 import { Scale, ScaleModeName, scales } from "../musicTheory/basics";
+import { replaceSymbols } from "../musicTheory/symbols";
 import { SelectorButton } from "./SelectorButton";
 
 interface Props {
@@ -15,7 +16,7 @@ export async function ScaleSelector({ selectedScale, selectedMode }: Props) {
           href={`/${scale}/${selectedMode ?? "Ionian"}`}
           isSelected={scale === selectedScale}
         >
-          {scale.replace("sharp", "#")}
+          {replaceSymbols(scale)}
         </SelectorButton>
       ))}
     </div>
