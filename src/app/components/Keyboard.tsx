@@ -43,7 +43,7 @@ function WhiteKey({
 }) {
   return (
     <div
-      className={`w-8 h-24 text-black rounded-b-sm flex flex-col justify-end text-center text-sm mr-1 ${
+      className={`w-8 h-24 text-black rounded-b-md rounded-t-sm flex flex-col justify-end text-center text-sm mr-1 ${
         isHighlighted
           ? "bg-purple-300 font-bold"
           : "bg-gray-200 text-gray-500 h-[5.5rem]"
@@ -63,7 +63,7 @@ function BlackKey({
 }) {
   return (
     <div
-      className={`w-6 h-16 ml-[-1.5rem] left-2.5 relative text-white flex flex-col justify-end text-center text-xs ${
+      className={`w-6 h-16 ml-[-1.5rem] left-2.5 relative text-white rounded-b-md flex flex-col justify-end text-center text-xs ${
         isHighlighted ? "bg-purple-600 font-bold" : "bg-black"
       }`}
     >
