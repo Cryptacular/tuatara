@@ -1,34 +1,30 @@
+import { ReactNode } from "react";
 import { ScaleMode, Scale } from "../musicTheory/basics";
 import getNotesInScale from "../musicTheory/getNotesInScale";
 import { replaceSymbols } from "../musicTheory/symbols";
 import { HeadingContainer } from "./HeadingContainer";
 
 interface Props {
+  label: string | ReactNode;
   scale: Scale;
   mode: ScaleMode["name"];
+  strings: Scale[];
 }
 
-export function BassGuitar({ scale, mode }: Props) {
-  const notesInStringB = getNotesInScale("B", "Chromatic");
-  const notesInStringE = getNotesInScale("E", "Chromatic");
-  const notesInStringA = getNotesInScale("A", "Chromatic");
-  const notesInStringD = getNotesInScale("D", "Chromatic");
-  const notesInStringG = getNotesInScale("G", "Chromatic");
-
-  const allStrings = [
-    [...notesInStringB, ...notesInStringB].slice(0, 13),
-    [...notesInStringE, ...notesInStringE].slice(0, 13),
-    [...notesInStringA, ...notesInStringA].slice(0, 13),
-    [...notesInStringD, ...notesInStringD].slice(0, 13),
-    [...notesInStringG, ...notesInStringG].slice(0, 13),
-  ];
+export function Guitar({ label, scale, mode, strings }: Props) {
+  const allStrings: Scale[][] = strings.map((note) =>
+    [
+      ...getNotesInScale(note, "Chromatic"),
+      ...getNotesInScale(note, "Chromatic"),
+    ].slice(0, 13)
+  );
 
   const noteIndices: number[] = Array.from(allStrings[0].keys());
 
   const notesInScale = getNotesInScale(scale, mode);
 
   return (
-    <HeadingContainer title="Bass guitar">
+    <HeadingContainer title={label}>
       <div className="flex flex-col gap-1">
         <div className="flex flex-row gap-2">
           {noteIndices.map((i) => (
