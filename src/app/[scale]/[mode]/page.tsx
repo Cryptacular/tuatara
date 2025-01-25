@@ -1,6 +1,6 @@
 import { ScaleSelector } from "@/app/components/ScaleSelector";
 import { Keyboard } from "@/app/components/Keyboard";
-import { Scale, ScaleModeName } from "@/app/musicTheory/basics";
+import { modes, Scale, ScaleModeName, scales } from "@/app/musicTheory/basics";
 import { ModeSelector } from "@/app/components/ModeSelector";
 import Link from "next/link";
 import PageWrapper from "@/app/components/PageWrapper";
@@ -38,3 +38,9 @@ export default async function Page({ params }: Props) {
     </PageWrapper>
   );
 }
+
+export const generateStaticParams = (): {
+  scale: Scale;
+  mode: ScaleModeName;
+}[] =>
+  scales.flatMap((scale) => modes.map((mode) => ({ scale, mode: mode.name })));
