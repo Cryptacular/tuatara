@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import Logo from "./components/Logo";
+import PageWrapper from "./components/PageWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +32,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <PageWrapper>
+          <h1 className="text-xl font-light">
+            <Link
+              href="/"
+              className="flex flex-row gap-4 items-center justify-center"
+            >
+              <Logo />
+            </Link>
+          </h1>
+
+          {children}
+
+          <footer className="text-xs mt-4">
+            Tuatara musical scale & mode selector
+          </footer>
+        </PageWrapper>
       </body>
     </html>
   );

@@ -2,8 +2,6 @@ import { ScaleSelector } from "@/app/components/ScaleSelector";
 import { Keyboard } from "@/app/components/Keyboard";
 import { modes, Scale, ScaleModeName, scales } from "@/app/musicTheory/basics";
 import { ModeSelector } from "@/app/components/ModeSelector";
-import Link from "next/link";
-import PageWrapper from "@/app/components/PageWrapper";
 import { Metadata } from "next";
 import { replaceSymbols } from "@/app/musicTheory/symbols";
 import { BassGuitar } from "@/app/components/BassGuitar";
@@ -24,10 +22,7 @@ export default async function Page({ params }: Props) {
   const { scale, mode } = await params;
 
   return (
-    <PageWrapper>
-      <h1 className="text-xl font-bold">
-        <Link href="/">Tuatara</Link>
-      </h1>
+    <>
       <ScaleSelector selectedScale={scale} selectedMode={mode} />
       <ModeSelector selectedScale={scale} selectedMode={mode} />
 
@@ -35,7 +30,7 @@ export default async function Page({ params }: Props) {
         <Keyboard scale={scale} mode={mode} />
         <BassGuitar scale={scale} mode={mode} />
       </div>
-    </PageWrapper>
+    </>
   );
 }
 
