@@ -19,8 +19,10 @@ export async function ModeSelector({ selectedScale, selectedMode }: Props) {
             isSelected={mode.name === selectedMode}
           >
             <span className="flex flex-col text-center">
-              <span>{mode.name}</span>
-              <span className="text-xs uppercase">{mode.type}</span>
+              <span className="text-sm md:text-base">{mode.name}</span>
+              <span className="text-tiny md:text-xs uppercase">
+                {mode.type}
+              </span>
             </span>
           </SelectorButton>
         ))}

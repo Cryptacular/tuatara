@@ -8,7 +8,7 @@ interface Props {
 export async function Selector({ children }: Props): Promise<ReactNode> {
   return (
     <div
-      className={`flex flex-row flex-wrap md:flex-nowrap gap-3 md:gap-0 text-center`}
+      className={`flex flex-row flex-wrap md:flex-nowrap gap-2 md:gap-0 text-center`}
     >
       {children}
     </div>
