@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import Logo from "./components/Logo";
 import PageWrapper from "./components/PageWrapper";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,7 @@ export default function RootLayout({
             Tuatara musical scale & mode selector
           </footer>
         </PageWrapper>
+        <Analytics />
       </body>
     </html>
   );
