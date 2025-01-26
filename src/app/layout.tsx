@@ -16,9 +16,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title =
+  "Tuatara — musical scales and modes — interactive reference for keyboard, guitar and bass guitar";
+
 export const metadata: Metadata = {
-  title:
-    "Tuatara — musical scales and modes — interactive reference for keyboard, guitar and bass guitar",
+  title,
   description:
     "Easily find the notes in a particular key, scale and mode for your next musical project or jam session.",
 };
@@ -40,9 +42,10 @@ export default function RootLayout({
           <h1 className="text-xl font-light">
             <Link
               href="/"
-              className="flex flex-row gap-4 items-center justify-center"
+              className="flex flex-row items-center justify-center"
             >
               <Logo />
+              <span className="sr-only">{title}</span>
             </Link>
           </h1>
 
