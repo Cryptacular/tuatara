@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title:
-    "Tuatara — musical scales and modes — interactive reference for various instruments",
+    "Tuatara — musical scales and modes — interactive reference for keyboard, guitar and bass guitar",
   description:
     "Easily find the notes in a particular key, scale and mode for your next musical project or jam session.",
 };
