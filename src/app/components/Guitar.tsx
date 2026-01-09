@@ -94,7 +94,11 @@ const NoteOnString = ({
 }) => (
   <div
     className={`flex items-center justify-center rounded-full text-xs text-foreground w-5 h-5 ${
-      isHighlighted ? "bg-purple-700 text-white font-bold" : ""
+      isHighlighted
+        ? index === 0
+          ? "bg-white text-purple-700"
+          : "bg-purple-700 text-white font-bold"
+        : ""
     } ${index > 5 ? "opacity-60" : ""} ${
       index > 8 ? "hidden md:flex" : index > 5 ? "hidden sm:flex" : " flex"
     }`}

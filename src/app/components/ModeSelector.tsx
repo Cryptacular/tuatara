@@ -6,16 +6,35 @@ import { SelectorButton } from "./SelectorButton";
 interface Props {
   selectedScale?: Scale;
   selectedMode?: ScaleModeName;
+  guitarTuning?: Scale[];
+  bassTuning?: Scale[];
 }
 
-export async function ModeSelector({ selectedScale, selectedMode }: Props) {
+export async function ModeSelector({
+  selectedScale,
+  selectedMode,
+  guitarTuning,
+  bassTuning,
+}: Props) {
+  const queryParams = new URLSearchParams();
+
+  if (guitarTuning) {
+    queryParams.append("guitar", guitarTuning.join(","));
+  }
+
+  if (bassTuning) {
+    queryParams.append("bass", bassTuning.join(","));
+  }
+
   return (
     <HeadingContainer title="Mode">
       <Selector>
         {modes.map((mode) => (
           <SelectorButton
             key={mode.name}
-            href={`/${selectedScale ?? "C"}/${mode.name}`}
+            href={`/${selectedScale ?? "C"}/${
+              mode.name
+            }?${queryParams.toString()}`}
             isSelected={mode.name === selectedMode}
           >
             <span className="flex flex-col text-center">
