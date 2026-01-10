@@ -83,31 +83,19 @@ export default async function Page({ params, searchParams }: Props) {
         currentBass={bassStrings}
       />
 
-      <div className="flex flex-col flex-wrap md:flex-row gap-16 items-center md:items-start mt-16">
+      <div className="flex flex-col justify-center flex-wrap md:flex-row gap-16 md:items-start mt-16">
         <Keyboard scale={scale} mode={mode} />
         <Guitar
-          label={
-            <span>
-              Bass guitar
-              <br />
-              <span className="uppercase text-tiny">5-string</span>
-            </span>
-          }
-          scale={scale}
-          mode={mode}
-          strings={bassStrings}
-        />
-        <Guitar
-          label={
-            <span>
-              Guitar
-              <br />
-              <span className="uppercase text-tiny">EADGBE</span>
-            </span>
-          }
+          label={"Guitar"}
           scale={scale}
           mode={mode}
           strings={guitarStrings}
+        />
+        <Guitar
+          label={"Bass"}
+          scale={scale}
+          mode={mode}
+          strings={bassStrings}
         />
       </div>
     </>
