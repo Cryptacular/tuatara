@@ -13,7 +13,7 @@ export function Keyboard({ scale, mode }: Props) {
 
   return (
     <HeadingContainer title="Keyboard">
-      <div className="flex flex-row">
+      <div className="flex flex-row select-none">
         {notesFromC.map((note) =>
           note.includes("sharp") ? (
             <BlackKey
