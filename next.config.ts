@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return [];
+    return [{ source: "/", destination: "/C/Ionian", permanent: false }];
   },
 };
 
