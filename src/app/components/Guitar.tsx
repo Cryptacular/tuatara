@@ -25,14 +25,15 @@ export function Guitar({ label, scale, mode, strings }: Props) {
 
   return (
     <HeadingContainer title={label}>
-      <div className="flex flex-col gap-1">
-        <div className="flex flex-row gap-2">
+      <div className="flex flex-col gap-1 relative select-none">
+        <div className="absolute h-full bg-purple-700/30 rounded-lg w-[26px] left-[-3px] top-[-8px] pb-[16px] box-content z-0" />
+        <div className="flex flex-row gap-2 z-10">
           {noteIndices.map((i) => (
             <NoteIndex key={i} index={i} />
           ))}
         </div>
         {allStrings.reverse().map((str, i) => (
-          <div key={`string-${i}`} className="flex flex-row gap-2">
+          <div key={`string-${i}`} className="flex flex-row gap-2 z-10">
             {str.map((note, j) => (
               <NoteOnString
                 key={`${str}-${note}-${j}`}
@@ -93,14 +94,14 @@ const NoteOnString = ({
   isHighlighted?: boolean;
 }) => (
   <div
-    className={`flex items-center justify-center rounded-full text-xs text-foreground w-5 h-5 ${
+    className={`flex items-center justify-center rounded-full text-[10px] text-foreground w-5 h-5 ${
       isHighlighted
         ? index === 0
-          ? "bg-white text-purple-700"
+          ? "bg-purple-900 text-white dark:bg-white dark:text-purple-700 font-bold"
           : "bg-purple-700 text-white font-bold"
-        : ""
+        : "opacity-40"
     } ${index > 5 ? "opacity-60" : ""} ${
-      index > 8 ? "hidden md:flex" : index > 5 ? "hidden sm:flex" : " flex"
+      index > 8 ? "hidden md:flex" : " flex"
     }`}
   >
     <span>{replaceSymbols(note)}</span>
